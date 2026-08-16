@@ -1,109 +1,25 @@
 [gd_scene format=3 uid="uid://couqgdxf72s61"]
 
+[ext_resource type="PackedScene" uid="uid://oontbnxn44mq" path="res://scenes/tile_map.tscn" id="1_dwgg1"]
 [ext_resource type="PackedScene" uid="uid://bp2psgv5gndlq" path="res://scenes/player.tscn" id="1_g2h75"]
 [ext_resource type="PackedScene" uid="uid://map" path="res://assets/map/Map.tscn" id="1_m7ahb"]
 [ext_resource type="Script" uid="uid://ucpomwijeqd2" path="res://scenes/player.gd" id="2_wwpf4"]
-[ext_resource type="Texture2D" uid="uid://cex3txfk8avk1" path="res://assets/map/tileset.png" id="4_dwgg1"]
-[ext_resource type="PackedScene" uid="uid://da873gxf7b60v" path="res://scenes/Coin.tscn" id="5_ru4tf"]
-[ext_resource type="PackedScene" uid="uid://6dawpdairh8w" path="res://scenes/gear.tscn" id="6_6sh32"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ru4tf"]
-texture = ExtResource("4_dwgg1")
-0:0/0 = 0
-1:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_4dm3s"]
-tile_size = Vector2i(26, 25)
-sources/0 = SubResource("TileSetAtlasSource_ru4tf")
 
 [node name="Level1" type="Node2D" unique_id=1707049272]
-position = Vector2(-133, -242)
+
+[node name="TileMap" parent="." unique_id=170123695 instance=ExtResource("1_dwgg1")]
+position = Vector2(13, 310)
+scale = Vector2(0.9999999, 0.9999999)
 
 [node name="map" parent="." unique_id=715155359 instance=ExtResource("1_m7ahb")]
-position = Vector2(-116, 177)
+position = Vector2(-115.99997, 177.00002)
+scale = Vector2(0.99999994, 0.99999994)
 
 [node name="player" parent="." unique_id=1479264108 instance=ExtResource("1_g2h75")]
-position = Vector2(-102, 339)
+position = Vector2(-99, 330)
 script = ExtResource("2_wwpf4")
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1812281512]
 position = Vector2(266, -42)
 scale = Vector2(5, 5)
 zoom = Vector2(2, 2)
-
-[node name="TileMap" type="TileMap" parent="." unique_id=884764465]
-visible = false
-position = Vector2(533, 287)
-tile_set = SubResource("TileSet_4dm3s")
-format = 2
-
-[node name="Layer1" type="TileMapLayer" parent="TileMap" unique_id=706428135]
-use_parent_material = true
-tile_set = SubResource("TileSet_4dm3s")
-
-[node name="Coin" parent="." unique_id=1888653484 instance=ExtResource("5_ru4tf")]
-position = Vector2(103, 274)
-scale = Vector2(0.5, 0.5)
-
-[node name="Coin3" parent="." unique_id=381106830 instance=ExtResource("5_ru4tf")]
-position = Vector2(7, 341)
-scale = Vector2(0.5, 0.5)
-
-[node name="Coin2" parent="." unique_id=1469783128 instance=ExtResource("5_ru4tf")]
-position = Vector2(246, 341)
-scale = Vector2(0.5, 0.5)
-
-[node name="Gear" parent="." unique_id=980355946 instance=ExtResource("6_6sh32")]
-position = Vector2(420, 305)
-scale = Vector2(0.4, 0.4)
-
-[node name="Gear2" parent="." unique_id=2074014478 instance=ExtResource("6_6sh32")]
-position = Vector2(116, 325)
-scale = Vector2(0.4, 0.4)
-
-[connection signal="body_exited" from="Coin" to="Coin" method="_on_body_exited"]
-[connection signal="body_exited" from="Coin3" to="Coin3" method="_on_body_exited"]
-[connection signal="body_exited" from="Coin2" to="Coin2" method="_on_body_exited"]
