@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://map" path="res://assets/map/Map.tscn" id="1_m7ahb"]
 [ext_resource type="Script" uid="uid://ucpomwijeqd2" path="res://scenes/player.gd" id="2_wwpf4"]
 [ext_resource type="Texture2D" uid="uid://cex3txfk8avk1" path="res://assets/map/tileset.png" id="4_dwgg1"]
+[ext_resource type="PackedScene" uid="uid://da873gxf7b60v" path="res://scenes/Coin.tscn" id="5_ru4tf"]
+[ext_resource type="PackedScene" uid="uid://6dawpdairh8w" path="res://scenes/gear.tscn" id="6_6sh32"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ru4tf"]
 texture = ExtResource("4_dwgg1")
@@ -58,12 +60,13 @@ tile_size = Vector2i(26, 25)
 sources/0 = SubResource("TileSetAtlasSource_ru4tf")
 
 [node name="Level1" type="Node2D" unique_id=1707049272]
+position = Vector2(-133, -242)
 
 [node name="map" parent="." unique_id=715155359 instance=ExtResource("1_m7ahb")]
 position = Vector2(-116, 177)
 
 [node name="player" parent="." unique_id=1479264108 instance=ExtResource("1_g2h75")]
-position = Vector2(-94, 340)
+position = Vector2(-102, 339)
 script = ExtResource("2_wwpf4")
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1812281512]
@@ -76,3 +79,31 @@ visible = false
 position = Vector2(533, 287)
 tile_set = SubResource("TileSet_4dm3s")
 format = 2
+
+[node name="Layer1" type="TileMapLayer" parent="TileMap" unique_id=706428135]
+use_parent_material = true
+tile_set = SubResource("TileSet_4dm3s")
+
+[node name="Coin" parent="." unique_id=1888653484 instance=ExtResource("5_ru4tf")]
+position = Vector2(103, 274)
+scale = Vector2(0.5, 0.5)
+
+[node name="Coin3" parent="." unique_id=381106830 instance=ExtResource("5_ru4tf")]
+position = Vector2(7, 341)
+scale = Vector2(0.5, 0.5)
+
+[node name="Coin2" parent="." unique_id=1469783128 instance=ExtResource("5_ru4tf")]
+position = Vector2(246, 341)
+scale = Vector2(0.5, 0.5)
+
+[node name="Gear" parent="." unique_id=980355946 instance=ExtResource("6_6sh32")]
+position = Vector2(420, 305)
+scale = Vector2(0.4, 0.4)
+
+[node name="Gear2" parent="." unique_id=2074014478 instance=ExtResource("6_6sh32")]
+position = Vector2(116, 325)
+scale = Vector2(0.4, 0.4)
+
+[connection signal="body_exited" from="Coin" to="Coin" method="_on_body_exited"]
+[connection signal="body_exited" from="Coin3" to="Coin3" method="_on_body_exited"]
+[connection signal="body_exited" from="Coin2" to="Coin2" method="_on_body_exited"]

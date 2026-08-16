@@ -1,8 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c_OCJudkuTk"]
+[gd_scene format=3 uid="uid://bq83w6jkk4066"]
 
-[ext_resource type="TileSet" id="tileset_id" path="tileset.tres"]
+[ext_resource type="TileSet" uid="uid://c6ugfdxva230" path="res://assets/map/tileset.tres" id="tileset_id"]
 
-[node name="Pickups_4" type="TileMapLayer"]
-collision_enabled = false
+[node name="Pickups_4" type="TileMapLayer" unique_id=854846273]
 tile_set = ExtResource("tileset_id")
-tile_map_data = PackedByteArray(0, 0, 17, 0, 11, 0, 0, 0, 6, 0, 1, 0, 0, 0, 18, 0, 11, 0, 0, 0, 7, 0, 1, 0, 0, 0, 7, 0, 10, 0, 0, 0, 6, 0, 1, 0, 0, 0, 7, 0, 9, 0, 0, 0, 6, 0, 1, 0, 0, 0, 33, 0, 6, 0, 0, 0, 0, 0, 2, 0, 0, 0)
+collision_enabled = false

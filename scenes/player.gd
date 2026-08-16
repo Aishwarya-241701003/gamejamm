@@ -1,47 +1,38 @@
 extends CharacterBody2D
 
 @export var speed: float = 250.0
+@export var jump_force: float = -300.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-var jumping := false
+func _physics_process(delta: float) -> void:
+	# Apply gravity
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 
+	# Get horizontal input
+	var direction := Input.get_axis("move_left", "move_right")
 
-func _ready() -> void:
-	sprite.animation_finished.connect(_on_animation_finished)
-
-
-func _physics_process(_delta: float) -> void:
-	var direction := Vector2(
-		Input.get_axis("move_left", "move_right"),
-		Input.get_axis("move_up", "move_down")
-	)
+	# Move left/right
+	velocity.x = direction * speed
 
 	# Jump
-	if Input.is_action_just_pressed("jump") and not jumping:
-		jumping = true
-		sprite.play("jump")
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = jump_force
 
-	# Movement
-	if not jumping:
-		if direction.length() > 0.0:
-			direction = direction.normalized()
-			velocity = direction * speed
-			sprite.play("run")
+	# Flip sprite
+	if direction < 0:
+		sprite.flip_h = true
+	elif direction > 0:
+		sprite.flip_h = false
 
-			# Face left/right
-			if direction.x < 0:
-				sprite.flip_h = true
-			elif direction.x > 0:
-				sprite.flip_h = false
-
-		else:
-			velocity = Vector2.ZERO
-			sprite.play("idle")
-
+	# Move the player
 	move_and_slide()
 
-
-func _on_animation_finished() -> void:
-	if sprite.animation == "jump":
-		jumping = false
+	# Play animations
+	if not is_on_floor():
+		sprite.play("jump")
+	elif direction != 0:
+		sprite.play("run")
+	else:
+		sprite.play("idle")

@@ -1,3 +1,21 @@
 [gd_scene format=3 uid="uid://6dawpdairh8w"]
 
-[node name="Gear" type="Node2D" unique_id=1842451285]
+[ext_resource type="Script" uid="uid://m23g38573t81" path="res://scenes/gear.gd" id="1_7j0fb"]
+[ext_resource type="Texture2D" uid="uid://20vbcgyekfp7" path="res://Gear-removebg-preview.png" id="1_btfrt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvbkx"]
+radius = 19.026299
+
+[node name="Gear" type="Area2D" unique_id=980355946]
+script = ExtResource("1_7j0fb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=956518688]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_btfrt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=76820483]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_nvbkx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

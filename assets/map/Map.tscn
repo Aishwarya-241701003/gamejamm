@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://map"]
+[gd_scene format=4 uid="uid://map"]
 
 [ext_resource type="PackedScene" path="res://assets/map/New_layer_0.tscn" id="0_id"]
 [ext_resource type="PackedScene" path="res://assets/map/Water_1.tscn" id="1_id"]
@@ -13,8 +13,10 @@
 [node name="Background_6" parent="." unique_id=502137559 instance=ExtResource("6_id")]
 
 [node name="Blocks_5" parent="." unique_id=646640234 instance=ExtResource("5_id")]
+tile_map_data = PackedByteArray("AAAHAAsAAAABAAIAAAACAAsAAAACAAIAAAAGAAsAAAADAAIAAAAIAAsAAAADAAIAAAAZAAkAAAAEAAIAAAAaAAkAAAAEAAIAAAAbAAkAAAAEAAIAAAAeAAgAAAAEAAIAAAAdAAgAAAAEAAIAAAAcAAgAAAAEAAIAAAAcAAkAAAAEAAIAAAAdAAkAAAAEAAIAAAAeAAkAAAAEAAIAAAAbAAgAAAAEAAIAAAAdAAcAAAAEAAIAAAAeAAcAAAAEAAIAAAAfAAcAAAAEAAIAAAAfAAgAAAAEAAIAAAAfAAkAAAAEAAIAAAAhAAkAAAABAAIAAAAgAAkAAAADAAIAAAAiAAkAAAADAAIAAAAjAAkAAAAEAAIAAAAjAAgAAAAEAAIAAAAjAAcAAAAEAAIAAAAkAAcAAAAEAAIAAAAlAAcAAAAEAAIAAAAlAAgAAAAEAAIAAAAlAAkAAAAEAAIAAAAkAAgAAAAEAAIAAAAkAAkAAAAEAAIAAAAMAAoAAAABAAMAAAANAAoAAAABAAMAAAAOAAoAAAABAAMAAAANAAcAAAACAAMAAAA=")
 
 [node name="Pickups_4" parent="." unique_id=512183486 instance=ExtResource("4_id")]
+tile_map_data = PackedByteArray()
 
 [node name="Ground_3" parent="." unique_id=515792478 instance=ExtResource("3_id")]
 

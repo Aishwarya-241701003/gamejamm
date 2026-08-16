@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://d18xovaguh7qu"]
+
+[ext_resource type="Texture2D" uid="uid://20vbcgyekfp7" path="res://Gear-removebg-preview.png" id="1_uxc50"]
+
+[sub_resource type="GDScript" id="GDScript_uxc50"]
+script/source = "extends Area2D
+
+var player_near = false
+
+func _process(_delta):
+	if player_near and Input.is_action_just_pressed(\"collect\"):
+		print(\"Gear Collected!\")
+		queue_free()
+
+func _on_body_entered(body):
+	if body.name == \"Player\":
+		player_near = true
+
+func _on_body_exited(body):
+	if body.name == \"Player\":
+		player_near = false
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvbkx"]
+radius = 13.33374
+
+[node name="Gears" type="Area2D" unique_id=234015237]
+position = Vector2(522.99994, 178)
+scale = Vector2(0.3, 0.3)
+script = SubResource("GDScript_uxc50")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=431679690]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_uxc50")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=491466122]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_nvbkx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
