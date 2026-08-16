@@ -227,8 +227,8 @@ position = Vector2(4, -34)
 sprite_frames = SubResource("SpriteFrames_4dm3s")
 animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.30397904
+frame_progress = 0.8831925
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1049419679]
-position = Vector2(1, 2)
+position = Vector2(10, 22)
 shape = SubResource("CircleShape2D_4dm3s")

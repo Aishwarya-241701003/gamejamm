@@ -1,0 +1,68 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c_lvl2_dusk_gear"]
+
+[ext_resource type="Texture2D" path="tileset_level2.png" id="1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lvl2"]
+texture = ExtResource("1")
+texture_region_size = Vector2i(16, 16)
+
+; --- solid ground tiles (full-square collision) ---
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+; --- pickups: gear (5,0), gem (6,0) — no collision, collect via Area2D script ---
+5:0/0 = 0
+6:0/0 = 0
+
+; --- spike hazard (7,0) — no tile collision, pair with an Area2D hurtbox ---
+7:0/0 = 0
+
+; --- diagonal cliff slopes, solid ---
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 8, -8, 8)
+
+; --- ladder (2,1) — no collision, climbable via script ---
+2:1/0 = 0
+
+; --- sign (3,1) — decorative, no collision ---
+3:1/0 = 0
+
+; --- gear-activation block (4,1) — solid ---
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+; --- background hill diagonals (5,1)(6,1) — decorative, no collision ---
+5:1/0 = 0
+6:1/0 = 0
+
+; --- background hills / clouds (0,2)-(3,2) — decorative, no collision ---
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+; --- water/coolant (4,2)(5,2) — no collision (hazard handled via Area2D if needed) ---
+4:2/0 = 0
+5:2/0 = 0
+
+; --- bridge/conveyor plank (6,2)(7,2) — solid walkable ---
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[resource]
+tile_size = Vector2i(16, 16)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_lvl2")
